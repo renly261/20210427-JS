@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 有沒有通過丙級
+        const pass = true
+
+        // 通過丙級就吃 pizza 的承諾
+        const pizza = new Promise((resolve, reject) => {
+            // 如果通過
+            if (pass) {
+                // 承諾達成
+                resolve('成功')
+            }
+            else {
+                // 承諾拒絕
+                // reject 裡面一定要放錯誤
+                // new Error() 要用 error.message 
+                reject(new Error('失敗'))
+            }
+        })
+
+        // 跑承諾
+        // .then() 承諾達成時執行
+        // .catch() 承諾拒絕時 或 .then() 發生錯誤時執行
+        // .finally() 不管成功或失敗一定會跑
+        pizza.then(result => {
+            alertt('aaa')
+            console.log(result)
+        }).catch(error => {
+            console.log('發生錯誤')
+            console.log(error.message)
+        }).finally(() => {
+            console.log('不管成功或失敗一定會跑')
+        })
+
+    </script>
+</body>
+
+</html>
